@@ -7,7 +7,7 @@ PAP521S – Programming in Practice
 Project A: Municipal Financial Management System
 
 ## Group Number
-[Write your group number here]
+[3]
 
 ## Group Members
 - Member 1: Employee Management
