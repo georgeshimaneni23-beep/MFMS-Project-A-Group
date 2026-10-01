@@ -40,3 +40,19 @@ gcc main.c employees.c budget.c suppliers.c assets.c reports.c -o mfms
 ./mfms
 ```
 
+## Individual Responsibilities
+
+### Member 1 - Employee Management (Rachel Grace Nelumbu, 225049511)
+**Files:** employees.c, employees.h
+
+**Functions developed:**
+-'addEmployee()' - reads and validates employee details and stores them in arrays
+-'displayEmployees()' - displays all stored employees with total salary
+-'searchEmployee()' -searches for an employee by ID using a loop
+-'calculateSalary()' - returns basic salary + housing + transport allowance
+
+**Concepts used:** arrays, strings ('strcpy', 'strlen', 'strcspn'), functions, loops, conditions
+
+**Validation:** rejects negative salaries, empty names, invalid numbers and duplicate IDs
+
+**Testing performed:** added, displayed and searched employees; tested negative salary, empty name, letters instead of numbers and duplicate IDs
