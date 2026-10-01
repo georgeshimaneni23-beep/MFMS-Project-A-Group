@@ -16,12 +16,25 @@ int addEmployee(int ids[], char names[] [50], char departments[][30],
  float basic, housing, transport;
 
  printf("Enter Employee ID: ");
- scanf("%d", &id);
+ if (scanf("%d", &id) != 1) {
+    printf("Invalid input for Employee ID.\n");
+    return count;
+ }
  getchar();
+ for (int i = 0; i < count; i++) {
+    if (ids[i] == id) {
+        printf("Employee ID already exists. Employee not added.\n");
+        return count;
+    }
 
  printf("Enter Employee Name: ");
     fgets(name, sizeof(name), stdin);
     name[strcspn(name, "\n")] = '\0';
+
+    if (strlen(name) == 0) {
+        printf("Employee name cannot be empty. Employee not added.\n");
+        return count;
+    }
 
     printf("Enter Employee Department: ");
     fgets(department, sizeof(department), stdin);
