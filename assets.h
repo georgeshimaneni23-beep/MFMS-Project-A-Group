@@ -13,7 +13,7 @@ int addAsset(
     int count
 );
 
-void displayAsset(
+void displayAssets(
     int assetIDs[],
     char assetNames[][50],
     char assetTypes[][30],
