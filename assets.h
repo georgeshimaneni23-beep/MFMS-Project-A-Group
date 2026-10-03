@@ -33,4 +33,6 @@ void searchAsset(
     int count
 );
 
+void assetMenu();
+
 #endif

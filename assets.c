@@ -10,18 +10,20 @@ int addAsset(
     char departments[][30],
     char conditions[][30],
     int count
-) {
-    if (count >= MAX_ASSETS) {
+)
+{
+    if (count >= MAX_ASSETS)
+    {
         printf("Cannot add more assets. Maximum limit reached.\n");
         return count;
     }
 
-    printf("\n---- Add New Asset ---\n");
+    printf("\n---- Add New Asset ----\n");
 
     printf("Enter Asset ID: ");
-    scanf("%d", &assetIDs[count]); 
-    
-    getchar(); 
+    scanf("%d", &assetIDs[count]);
+
+    getchar();
 
     printf("Enter Asset Name: ");
     fgets(assetNames[count], 50, stdin);
@@ -34,12 +36,13 @@ int addAsset(
     printf("Enter Purchase Value: ");
     scanf("%f", &purchaseValues[count]);
 
-    while (purchaseValues[count] < 0) {
-        printf("Purchase value cannot be negative. Please enter a valid value: ");
+    while (purchaseValues[count] < 0)
+    {
+        printf("Purchase value cannot be negative.\n");
         printf("Enter Purchase Value: ");
         scanf("%f", &purchaseValues[count]);
     }
-    
+
     getchar();
 
     printf("Enter Department: ");
@@ -55,6 +58,7 @@ int addAsset(
     return count + 1;
 }
 
+
 void displayAssets(
     int assetIDs[],
     char assetNames[][50],
@@ -63,14 +67,18 @@ void displayAssets(
     char departments[][30],
     char conditions[][30],
     int count
-) {
-    if (count == 0) {
+)
+{
+    if (count == 0)
+    {
         printf("No assets to display.\n");
         return;
     }
 
     printf("\n---- Asset List ----\n");
-    for (int i = 0; i < count; i++) {
+
+    for (int i = 0; i < count; i++)
+    {
         printf("Asset ID: %d\n", assetIDs[i]);
         printf("Asset Name: %s\n", assetNames[i]);
         printf("Asset Type: %s\n", assetTypes[i]);
@@ -81,6 +89,7 @@ void displayAssets(
     }
 }
 
+
 void searchAsset(
     int assetIDs[],
     char assetNames[][50],
@@ -89,18 +98,23 @@ void searchAsset(
     char departments[][30],
     char conditions[][30],
     int count
-) {
-    if (count == 0) {
+)
+{
+    if (count == 0)
+    {
         printf("No assets to search.\n");
         return;
     }
 
     int searchID;
+
     printf("Enter Asset ID to search: ");
     scanf("%d", &searchID);
 
-    for (int i = 0; i < count; i++) {
-        if (assetIDs[i] == searchID) {
+    for (int i = 0; i < count; i++)
+    {
+        if (assetIDs[i] == searchID)
+        {
             printf("\n---- Asset Found ----\n");
             printf("Asset ID: %d\n", assetIDs[i]);
             printf("Asset Name: %s\n", assetNames[i]);
@@ -108,9 +122,17 @@ void searchAsset(
             printf("Purchase Value: %.2f\n", purchaseValues[i]);
             printf("Department: %s\n", departments[i]);
             printf("Condition: %s\n", conditions[i]);
+
             return;
         }
     }
 
     printf("Asset with ID %d not found.\n", searchID);
+}
+
+
+void assetMenu()
+{
+    printf("\n========== ASSET MANAGEMENT ==========\n");
+    printf("Asset management module is available.\n");
 }
