@@ -1,64 +1,115 @@
 #include <stdio.h>
+
+#include "reports.h"
 #include "employees.h"
 #include "budget.h"
 #include "suppliers.h"
 #include "assets.h"
-#include "reports.h"
 
-void displayMainMenu();
+void employeeReport(int ids[], char names[][50], char departments[][30],
+                   float basicSalaries[], float housingAllowances[],
+                   float transportAllowances[], int count)
+{
+    int i;
+    float totalSalary = 0;
+    float highestSalary;
+    float lowestSalary;
 
-int main() {
+    if (count == 0)
+    {
+        printf("\n========== EMPLOYEE REPORT ==========" );
+        printf("\nNo employees have been registered.\n");
+        return;
+    }
+
+    highestSalary = calculateSalary(basicSalaries[0], housingAllowances[0], transportAllowances[0]);
+    lowestSalary = highestSalary;
+
+    for (i = 0; i < count; i++)
+    {
+        float salary = calculateSalary(basicSalaries[i], housingAllowances[i], transportAllowances[i]);
+        totalSalary += salary;
+
+        if (salary > highestSalary)
+        {
+            highestSalary = salary;
+        }
+
+        if (salary < lowestSalary)
+        {
+            lowestSalary = salary;
+        }
+    }
+
+    printf("\n========== EMPLOYEE REPORT ==========" );
+    printf("\nTotal Employees : %d\n", count);
+    printf("Average Salary  : N$%.2f\n", totalSalary / count);
+    printf("Highest Salary  : N$%.2f\n", highestSalary);
+    printf("Lowest Salary   : N$%.2f\n", lowestSalary);
+}
+
+void budgetReport(void)
+{
+    budgetSummary();
+}
+
+void supplierReport(void)
+{
+    printf("\n========== SUPPLIER REPORT ==========" );
+    displaySuppliers();
+}
+
+void assetReport(int assetIDs[], char assetNames[][50], char assetTypes[][30],
+                float purchaseValues[], char departments[][30],
+                char conditions[][30], int count)
+{
+    printf("\n========== ASSET REPORT ==========" );
+    displayAssets(assetIDs, assetNames, assetTypes, purchaseValues,
+                  departments, conditions, count);
+}
+
+void reportsMenu(void)
+{
     int choice;
 
-    do {
-        displayMainMenu();
+    do
+    {
+        printf("\n========================================\n");
+        printf("              REPORTS\n");
+        printf("========================================\n");
+        printf("1. Employee Report\n");
+        printf("2. Budget Report\n");
+        printf("3. Supplier Report\n");
+        printf("4. Asset Report\n");
+        printf("5. Return to Main Menu\n");
+        printf("========================================\n");
 
-        printf("Enter your choice: ");
-        scanf("%d", &choice);
+        choice = readInt("Enter your choice: ");
 
-        switch (choice) {
+        switch (choice)
+        {
             case 1:
-                employeeMenu();
+                showEmployeeReport();
                 break;
 
             case 2:
-                budgetMenu();
+                budgetReport();
                 break;
 
             case 3:
-                supplierMenu();
+                supplierReport();
                 break;
 
             case 4:
-                assetMenu();
+                showAssetReport();
                 break;
 
             case 5:
-                reportsMenu();
-                break;
-
-            case 6:
-                printf("Exiting the system...\n");
+                printf("Returning to main menu...\n");
                 break;
 
             default:
                 printf("Invalid choice. Please try again.\n");
         }
-
-    } while (choice != 6);
-
-    return 0;
+    } while (choice != 5);
 }
-
-void displayMainMenu() {
-    printf("\n========================================\n");
-    printf(" MUNICIPAL FINANCIAL MANAGEMENT SYSTEM\n");
-    printf("========================================\n");
-    printf("1. Employee Management\n");
-    printf("2. Budget Management\n");
-    printf("3. Supplier Management\n");
-    printf("4. Asset Management\n");
-    printf("5. Reports\n");
-    printf("6. Exit\n");
-}
-

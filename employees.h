@@ -36,6 +36,7 @@ int searchEmployee(
 
 float calculateSalary(float basic, float housing, float transport);
 
-void employeeMenu();
+void employeeMenu(void);
+void showEmployeeReport(void);
 
 #endif
