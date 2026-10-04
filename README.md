@@ -17,8 +17,8 @@ Group 3
 | 2 | Virinao Kangumine | 225116358 | Budget Management |
 | 3 | Heilly Sitali | 226134792 | Supplier Management |
 | 4 | Johannes David | 225158787 | Asset Management |
-| 5 | Hafeleni Nkandela | TBD | Reports |
-| 6 | Given Shiimbunde | TBD | Functions, Integration and Validation |
+| 5 | Hafeleni Nghinyangelwa | 226070042 | Reports |
+| 6 | Given Kambonde | 226068528 | Functions, Integration and Validation |
 | 7 | George Shimaneni | 225018497 | Testing, Documentation and Git Coordination |
 
 ## System Features
@@ -108,8 +108,8 @@ The program will display a main menu. Use the number keys to navigate:
 
 **Validation:** rejects negative purchase values, empty fields, duplicate asset IDs
 
-### Member 5 – Reports (Hafeleni Nkandela)
-**Files:** reports.c, reports.h (partial), utils.c (shared)
+### Member 5 – Reports (Hafeleni Nghinyangelwa, 226070042)
+**Files:** reports.c, reports.h, utils.c (shared)
 
 **Functions developed:**
 - `employeeReport()` – displays total employees, average/highest/lowest salary
@@ -120,7 +120,7 @@ The program will display a main menu. Use the number keys to navigate:
 
 **Concepts used:** loops, calculations, data aggregation
 
-### Member 6 – Functions, Integration and Validation (Given Shiimbunde)
+### Member 6 – Functions, Integration and Validation (Given Kambonde, 226068528)
 **Files:** main.c, reports.h, utils.h, utils.c
 
 **Functions developed:**
