@@ -19,7 +19,10 @@ int getPositiveInteger(char message[])
     {
         printf("%s", message);
 
-        fgets(input, sizeof(input), stdin);
+       if (fgets(input, sizeof(input), stdin) == NULL)
+        {
+            exit(0);
+        }
 
         number = strtol(input, &end, 10);
 
