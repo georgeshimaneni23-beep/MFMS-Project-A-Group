@@ -4,6 +4,7 @@
 #include "budget.h"
 #include "suppliers.h"
 #include "assets.h"
+#include "utils.h"
 
 
 void employeeReport(
@@ -16,6 +17,10 @@ void employeeReport(
     int count
 )
 {
+    (void)ids;
+    (void)names;
+    (void)departments;
+
     if (count == 0)
     {
         printf("\n========== EMPLOYEE REPORT ==========\n");
@@ -68,8 +73,7 @@ void employeeReport(
 
 void budgetReport()
 {
-    printf("\n========== BUDGET REPORT ==========\n");
-    printf("Budget report will use the budget records.\n");
+    budgetSummary();
 }
 
 
@@ -120,14 +124,12 @@ void reportsMenu()
         printf("5. Return to Main Menu\n");
         printf("========================================\n");
 
-        printf("Enter your choice: ");
-        scanf("%d", &choice);
+        choice = readInt("Enter your choice: ");
 
         switch (choice)
         {
             case 1:
-                printf("\nEmployee report selected.\n");
-                printf("Employee data will be connected here.\n");
+                showEmployeeReport();
                 break;
 
             case 2:
@@ -139,8 +141,7 @@ void reportsMenu()
                 break;
 
             case 4:
-                printf("\nAsset report selected.\n");
-                printf("Asset data will be connected here.\n");
+                showAssetReport();
                 break;
 
             case 5:

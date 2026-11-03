@@ -50,10 +50,10 @@ int readInt(const char *prompt)
     while (1)
     {
         printf("%s", prompt);
-        if (fgets(input, sizeof(input), stdin) == NULL)
+                if (fgets(input, sizeof(input), stdin) == NULL)
         {
-            printf("Invalid input. Please enter a number.\n");
-            continue;
+            printf("\nInput ended. Exiting the system...\n");
+            exit(EXIT_SUCCESS);
         }
 
         trimNewline(input);
@@ -98,10 +98,10 @@ float readNonNegativeFloat(const char *prompt)
     while (1)
     {
         printf("%s", prompt);
-        if (fgets(input, sizeof(input), stdin) == NULL)
+                if (fgets(input, sizeof(input), stdin) == NULL)
         {
-            printf("Invalid input. Please enter a number.\n");
-            continue;
+            printf("\nInput ended. Exiting the system...\n");
+            exit(EXIT_SUCCESS);
         }
 
         trimNewline(input);
@@ -138,10 +138,10 @@ void readText(const char *prompt, char *buffer, size_t size)
     while (1)
     {
         printf("%s", prompt);
-        if (fgets(buffer, (int)size, stdin) == NULL)
+                if (fgets(buffer, (int)size, stdin) == NULL)
         {
-            printf("This field cannot be empty.\n");
-            continue;
+            printf("\nInput ended. Exiting the system...\n");
+            exit(EXIT_SUCCESS);
         }
 
         trimNewline(buffer);
